@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chris Ribeiro — Founder & Principal, Starlight Analytics | Rutgers Business School</title>
+  <meta name="description" content="Personal website of Chris Ribeiro: Founder & Principal at Starlight Analytics, Assistant Professor of Marketing at Rutgers Business School, former Fortune 500 retail analytics leader (PVH, VF Corp), and quoted strategist in Fortune & Inc.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: '#FAF9F6',
+            midnight: '#0B1020',
+            'midnight-card': '#10162B',
+            deepInk: '#111827',
+            slateMuted: '#4B5563',
+            starlightGold: '#D4A351',
+            'starlightGold-hover': '#c29241',
+            rutgersCrimson: '#B91C1C',
+            hairlineLight: '#E6E4DD',
+            hairlineDark: 'rgba(255, 255, 255, 0.10)'
+          },
+          fontFamily: {
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+            sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::selection {
+      background-color: rgba(212, 163, 81, 0.25);
+      color: #0B1020;
+    }
+    .glass-nav {
+      background: rgba(11, 16, 32, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .card-hover-transition {
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-hover-transition:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px -10px rgba(11, 16, 32, 0.08);
+    }
+
+    /* 3D Interactive Rotating Cube Styles */
+    .cube-scene {
+      width: 200px;
+      height: 200px;
+      perspective: 900px;
+      margin: 0 auto;
+    }
+    .cube-object {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transform: rotateX(-18deg) rotateY(32deg);
+      animation: autoSpinCube 24s infinite linear;
+      transition: transform 0.2s ease-out;
+    }
+    .cube-object:hover {
+      animation-play-state: paused;
+    }
+    .cube-face {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border: 1px solid rgba(212, 163, 81, 0.45);
+      background: rgba(16, 22, 43, 0.78);
+      backdrop-filter: blur(8px);
+      box-shadow: inset 0 0 35px rgba(212, 163, 81, 0.15), 0 0 20px rgba(11, 16, 32, 0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      text-align: center;
+      border-radius: 12px;
+      color: #ffffff;
+      user-select: none;
+    }
+    .cube-face-front  { transform: rotateY(0deg) translateZ(100px); }
+    .cube-face-back   { transform: rotateY(180deg) translateZ(100px); }
+    .cube-face-right  { transform: rotateY(90deg) translateZ(100px); }
+    .cube-face-left   { transform: rotateY(-90deg) translateZ(100px); }
+    .cube-face-top    { transform: rotateX(90deg) translateZ(100px); }
+    .cube-face-bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+    @keyframes autoSpinCube {
+      0% { transform: rotateX(-16deg) rotateY(0deg); }
+      50% { transform: rotateX(16deg) rotateY(180deg); }
+      100% { transform: rotateX(-16deg) rotateY(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-ivory text-deepInk font-sans antialiased selection:bg-starlightGold/20">
+
+  <!-- ================= TOP NAVIGATION ================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-hairlineDark transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5 group">
+        <span class="w-2.5 h-2.5 rounded-full bg-starlightGold transition-transform group-hover:scale-125 shadow-sm shadow-starlightGold/50"></span>
+        <span class="font-serif text-xl tracking-wide text-white group-hover:text-starlightGold transition-colors">Chris Ribeiro</span>
+        <span class="text-xs font-mono text-slate-400 hidden sm:inline-block ml-2 border-l border-white/10 pl-3">Starlight Analytics · Rutgers</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#background" class="hover:text-starlightGold transition-colors">Background</a>
+        <a href="#advisory" class="hover:text-starlightGold transition-colors">Advisory &amp; Teaching</a>
+        <a href="#press" class="hover:text-starlightGold transition-colors">In the Press</a>
+        <a href="#testimonials" class="hover:text-starlightGold transition-colors">Impact</a>
+        <a href="#connect" class="px-4 py-1.5 rounded-full bg-white/10 text-white hover:bg-starlightGold hover:text-midnight transition-all text-xs font-mono uppercase tracking-wider font-semibold">
+          Connect
+        </a>
+      </nav>
+
+      <!-- Mobile Action -->
+      <a href="#connect" class="md:hidden text-xs font-mono uppercase tracking-wider text-starlightGold border border-starlightGold/40 px-3 py-1 rounded-full">
+        Connect
+      </a>
+    </div>
+  </header>
+
+  <!-- ================= SECTION 1: HERO ================= -->
+  <section class="relative bg-midnight text-white pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
+    <!-- Interactive Starlight Constellation Canvas -->
+    <canvas id="starlightConstellationCanvas" class="absolute inset-0 pointer-events-auto opacity-75" aria-label="Interactive starlight constellation signal visualization"></canvas>
+
+    <!-- Radial Glow Overlay -->
+    <div class="absolute inset-0 bg-radial-gradient pointer-events-none" style="background: radial-gradient(circle at 75% 25%, rgba(212, 163, 81, 0.09) 0%, rgba(11, 16, 32, 0) 65%);"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Content (7 cols) -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-hairlineDark">
+            <span class="w-2 h-2 rounded-full bg-starlightGold animate-pulse"></span>
+            <span class="font-mono text-xs uppercase tracking-widest text-slate-300">
+              New York / New Jersey · Founder, Starlight Analytics · Rutgers Business School
+            </span>
+          </div>
+
+          <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] text-white">
+            Chris Ribeiro
+          </h1>
+
+          <p class="text-xl sm:text-2xl text-slate-300 font-normal leading-relaxed max-w-xl">
+            Turning consumer data overload into clear, P&amp;L-defensible decisions for retail and DTC brands.
+          </p>
+
+          <div class="pt-2">
+            <p class="font-mono text-xs sm:text-sm text-slate-400 flex flex-wrap items-center gap-y-2 gap-x-3">
+              <span class="inline-flex items-center text-starlightGold font-medium">20+ Yr Retail Operator (PVH, VF Corp)</span>
+              <span class="text-slate-600">·</span>
+              <span class="inline-flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-rutgersCrimson"></span>
+                Rutgers Marketing Professor
+              </span>
+              <span class="text-slate-600">·</span>
+              <span>Quoted in Fortune &amp; Inc.</span>
+            </p>
+          </div>
+
+          <div class="pt-4 flex flex-wrap items-center gap-4">
+            <a href="#connect" class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-starlightGold text-midnight font-semibold text-sm hover:bg-starlightGold-hover transition-all shadow-lg shadow-starlightGold/20 hover:shadow-starlightGold/30 hover:-translate-y-0.5">
+              Get in Touch
+            </a>
+            <a href="https://www.starlightanalytics.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white/5 text-slate-200 border border-hairlineDark hover:border-slate-400 hover:text-white transition-all text-sm group">
+              Starlight Analytics
+              <span class="ml-1.5 text-xs text-starlightGold transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: 3D Interactive Dimension Cube & Portrait Toggle (5 cols) -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center">
+          
+          <!-- Outer Card Container -->
+          <div class="relative w-full max-w-sm rounded-3xl bg-midnight-card/85 border border-white/10 p-6 shadow-2xl backdrop-blur-md">
+            
+            <!-- Tab Switcher between 3D Artifact & Headshot Frame -->
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-starlightGold"></span>
+                <span class="font-mono text-xs uppercase tracking-wider text-slate-300">Executive Artifact</span>
+              </div>
+              <div class="flex items-center gap-1 bg-white/5 p-1 rounded-lg border border-white/10">
+                <button id="showCubeBtn" onclick="switchVisual('cube')" class="px-2.5 py-1 rounded text-[11px] font-mono bg-starlightGold text-midnight font-semibold transition-all">
+                  3D Cube
+                </button>
+                <button id="showPhotoBtn" onclick="switchVisual('photo')" class="px-2.5 py-1 rounded text-[11px] font-mono text-slate-300 hover:text-white transition-all">
+                  Portrait
+                </button>
+              </div>
+            </div>
+
+            <!-- View 1: 3D Interactive Rotating Cube -->
+            <div id="cubeView" class="py-4 flex flex-col items-center">
+              <div class="cube-scene" id="cubeScene">
+                <div class="cube-object" id="interactiveCube">
+                  
+                  <!-- Face 1: Operator -->
+                  <div class="cube-face cube-face-front">
+                    <span class="font-mono text-[10px] text-starlightGold uppercase tracking-wider">Dimension I</span>
+                    <span class="font-serif text-lg font-bold text-white mt-1">Brand Operator</span>
+                    <p class="text-[11px] text-slate-300 mt-2 leading-tight">PVH &amp; VF Corp</p>
+                    <span class="text-[9px] font-mono text-slate-400 mt-1">Calvin Klein · The North Face · Vans</span>
+                  </div>
+
+                  <!-- Face 2: Founder -->
+                  <div class="cube-face cube-face-right">
+                    <span class="font-mono text-[10px] text-starlightGold uppercase tracking-wider">Dimension II</span>
+                    <span class="font-serif text-lg font-bold text-white mt-1">Boutique Founder</span>
+                    <p class="text-[11px] text-slate-300 mt-2 leading-tight">Starlight Analytics</p>
+                    <span class="text-[9px] font-mono text-slate-400 mt-1">Independent MMM &amp; Insights</span>
+                  </div>
+
+                  <!-- Face 3: Professor -->
+                  <div class="cube-face cube-face-back">
+                    <span class="font-mono text-[10px] text-rutgersCrimson uppercase tracking-wider font-semibold">Dimension III</span>
+                    <span class="font-serif text-lg font-bold text-white mt-1">Marketing Faculty</span>
+                    <p class="text-[11px] text-slate-300 mt-2 leading-tight">Rutgers Business School</p>
+                    <span class="text-[9px] font-mono text-slate-400 mt-1">AI in Marketing &amp; Executive Ed</span>
+                  </div>
+
+                  <!-- Face 4: Strategist -->
+                  <div class="cube-face cube-face-left">
+                    <span class="font-mono text-[10px] text-starlightGold uppercase tracking-wider">Dimension IV</span>
+                    <span class="font-serif text-lg font-bold text-white mt-1">National Voice</span>
+                    <p class="text-[11px] text-slate-300 mt-2 leading-tight">Press Commentary</p>
+                    <span class="text-[9px] font-mono text-slate-400 mt-1">Quoted in Fortune &amp; Inc.</span>
+                  </div>
+
+                  <!-- Face 5: Top (Impact) -->
+                  <div class="cube-face cube-face-top">
+                    <span class="font-mono text-[10px] text-starlightGold uppercase tracking-wider">P&amp;L Proof</span>
+                    <span class="font-serif text-2xl font-bold text-starlightGold mt-1">+$2M</span>
+                    <p class="text-[10px] text-slate-200 mt-1">Gross Profit Transformation</p>
+                    <span class="text-[9px] font-mono text-slate-400 mt-1">+15% Marketing ROI</span>
+                  </div>
+
+                  <!-- Face 6: Bottom (Recognition) -->
+                  <div class="cube-face cube-face-bottom">
+                    <span class="font-mono text-[10px] text-starlightGold uppercase tracking-wider">Industry Rank</span>
+                    <span class="font-serif text-2xl font-bold text-white mt-1">Top 5 US</span>
+                    <p class="text-[10px] text-slate-200 mt-1">Social Listening Agencies</p>
+                    <span class="text-[9px] font-mono text-slate-400 mt-1">Sociallyin 2026</span>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="mt-8 text-center">
+                <span class="inline-flex items-center gap-1.5 text-[11px] font-mono text-slate-400">
+                  <span class="w-1.5 h-1.5 rounded-full bg-starlightGold animate-ping"></span>
+                  Interactive 3D Data Cube: Hover to pause &amp; examine dimensions
+                </span>
+              </div>
+            </div>
+
+            <!-- View 2: Executive Headshot Slot -->
+            <div id="photoView" class="hidden py-2">
+              <div class="relative w-full h-72 rounded-2xl overflow-hidden bg-slate-900 border border-white/10 flex items-center justify-center shadow-inner">
+                <img 
+                  id="chrisHeadshot"
+                  src="chris-ribeiro.jpg" 
+                  alt="Chris Ribeiro - Founder, Starlight Analytics & Professor at Rutgers Business School" 
+                  class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+                  onerror="this.style.display='none'; document.getElementById('headshotFallback').style.display='flex';"
+                >
+                <div id="headshotFallback" class="hidden w-full h-full flex-col items-center justify-center text-center p-6 space-y-3 bg-gradient-to-b from-slate-800 to-midnight">
+                  <div class="w-20 h-20 rounded-full border border-starlightGold/50 flex items-center justify-center bg-starlightGold/10">
+                    <span class="font-serif text-3xl text-starlightGold">CR</span>
+                  </div>
+                  <div>
+                    <span class="block font-serif text-lg text-white">Chris Ribeiro</span>
+                    <span class="font-mono text-xs text-slate-400">Starlight Analytics · Rutgers</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center justify-between text-xs font-mono text-slate-400">
+                <span>New York / New Jersey</span>
+                <span class="text-starlightGold">Rutgers Business School</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 2: PRESS BAR & 4 METRIC PILLARS ================= -->
+  <section class="border-y border-hairlineLight bg-white py-12">
+    <div class="max-w-6xl mx-auto px-6 space-y-10">
+      
+      <!-- As Featured In Publication Strip -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-hairlineLight">
+        <span class="font-mono text-xs uppercase tracking-widest text-slate-400">
+          Featured &amp; Quoted In
+        </span>
+        <div class="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm font-semibold tracking-wider text-slate-600">
+          <span class="font-serif text-lg text-charcoal tracking-normal">FORTUNE</span>
+          <span class="text-hairlineLight">/</span>
+          <span class="font-sans font-extrabold text-charcoal">Inc.</span>
+          <span class="text-hairlineLight">/</span>
+          <span class="font-sans font-medium text-charcoal">Retail Brew</span>
+          <span class="text-hairlineLight">/</span>
+          <span class="font-sans font-medium text-charcoal">Digital Commerce 360</span>
+          <span class="text-hairlineLight">/</span>
+          <span class="font-sans font-medium text-charcoal">The Financial Brand</span>
+          <span class="text-hairlineLight">/</span>
+          <span class="font-sans font-medium text-charcoal">The Food Institute</span>
+        </div>
+      </div>
+
+      <!-- 4 Compact Metric Pillars -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-hairlineLight">
+        
+        <!-- Metric 1 -->
+        <div class="pt-4 lg:pt-0 lg:px-6 first:pl-0">
+          <div class="flex items-baseline gap-1">
+            <span class="font-serif text-4xl sm:text-5xl text-deepInk">20+</span>
+            <span class="font-mono text-xs font-medium text-slate-500 uppercase">Years</span>
+          </div>
+          <h3 class="font-semibold text-deepInk mt-1 text-sm sm:text-base">Brand-Side Leadership</h3>
+          <p class="text-slateMuted text-xs mt-0.5 font-mono">Retail, analytics &amp; loyalty operator</p>
+        </div>
+
+        <!-- Metric 2 -->
+        <div class="pt-4 lg:pt-0 lg:px-6">
+          <div class="flex items-baseline gap-1">
+            <span class="font-serif text-4xl sm:text-5xl text-deepInk">5</span>
+            <span class="font-mono text-xs font-medium text-starlightGold uppercase">Iconic Brands</span>
+          </div>
+          <h3 class="font-semibold text-deepInk mt-1 text-sm sm:text-base">Global Brand Pedigree</h3>
+          <p class="text-slateMuted text-xs mt-0.5 font-mono">Calvin Klein, Tommy Hilfiger, Vans, etc.</p>
+        </div>
+
+        <!-- Metric 3 -->
+        <div class="pt-4 lg:pt-0 lg:px-6">
+          <div class="flex items-baseline gap-1">
+            <span class="font-serif text-4xl sm:text-5xl text-deepInk">+$2M</span>
+            <span class="font-mono text-xs font-medium text-starlightGold uppercase">Profit</span>
+          </div>
+          <h3 class="font-semibold text-deepInk mt-1 text-sm sm:text-base">Documented Lift</h3>
+          <p class="text-slateMuted text-xs mt-0.5 font-mono">+15% Marketing ROI transformation</p>
+        </div>
+
+        <!-- Metric 4 -->
+        <div class="pt-4 lg:pt-0 lg:px-6 last:pr-0">
+          <div class="flex items-baseline gap-1">
+            <span class="font-serif text-4xl sm:text-5xl text-deepInk">Top 5</span>
+            <span class="font-mono text-xs font-medium text-rutgersCrimson uppercase">In US</span>
+          </div>
+          <h3 class="font-semibold text-deepInk mt-1 text-sm sm:text-base">Social Listening Agency</h3>
+          <p class="text-slateMuted text-xs mt-0.5 font-mono">Starlight Analytics · Sociallyin 2026</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 3: THE STORY & CAREER ARC ================= -->
+  <section id="background" class="py-24 bg-ivory">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        
+        <!-- Left Column: Sticky Narrative & Core Thesis -->
+        <div class="lg:col-span-5">
+          <div class="lg:sticky lg:top-28 space-y-6">
+            <span class="font-mono text-xs uppercase tracking-widest text-starlightGold font-semibold">
+              Operator · Founder · Professor
+            </span>
+            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-deepInk leading-tight">
+              Built inside the brands, not from the sidelines.
+            </h2>
+            <p class="text-slateMuted leading-relaxed text-base">
+              Before founding Starlight Analytics, Chris Ribeiro spent two decades on the brand side running marketing analytics, consumer insights, and loyalty technology for PVH Corp. and VF Corporation.
+            </p>
+            <p class="text-slateMuted leading-relaxed text-sm">
+              Today, he brings that same CFO-ready rigor to growth-minded retail and DTC leaders — while teaching the next generation of executives how to apply AI to marketing at Rutgers Business School.
+            </p>
+
+            <!-- Pull Quote Block -->
+            <div class="pt-4">
+              <blockquote class="border-l-2 border-starlightGold pl-4 py-1 italic font-serif text-lg text-deepInk leading-relaxed bg-white/60 rounded-r-lg">
+                &ldquo;You get an operator who has had to defend a marketing budget with imperfect data and knows what a CFO will ask.&rdquo;
+              </blockquote>
+              <cite class="block font-mono text-xs text-slate-500 mt-2 uppercase tracking-wider not-italic pl-4">
+                — Chris Ribeiro, Starlight Analytics
+              </cite>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Clean Career Cards -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Career Card 1: Enterprise Brand Operator -->
+          <div class="p-8 rounded-2xl bg-white border border-hairlineLight card-hover-transition">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-mono text-xs font-semibold text-starlightGold uppercase">20+ Years Brand-Side</span>
+              <span class="text-xs font-mono text-slate-400">Fortune 500 Apparel &amp; Footwear</span>
+            </div>
+            <h3 class="font-serif text-2xl text-deepInk">Retail Leadership: PVH Corp. &amp; VF Corporation</h3>
+            <p class="text-slateMuted text-sm mt-3 leading-relaxed">
+              Led marketing analytics, consumer insights, product management, MarTech, and loyalty technology across <strong>Calvin Klein</strong>, <strong>Tommy Hilfiger</strong> (PVH Corp.), <strong>The North Face</strong>, <strong>Timberland</strong>, and <strong>Vans</strong> (VF Corporation). Modernized enterprise stacks, relaunched global membership programs, and defended multi-million-dollar marketing budgets directly against the corporate P&amp;L.
+            </p>
+          </div>
+
+          <!-- Career Card 2: Boutique Founder -->
+          <div class="p-8 rounded-2xl bg-white border border-hairlineLight card-hover-transition">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-mono text-xs font-semibold text-deepInk uppercase">2017 – Present</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-starlightGold/15 text-starlightGold font-semibold">Top 5 US Agency</span>
+            </div>
+            <h3 class="font-serif text-2xl text-deepInk">Founder &amp; Principal: Starlight Analytics</h3>
+            <p class="text-slateMuted text-sm mt-3 leading-relaxed">
+              Boutique retail, e-commerce, and DTC consultancy specializing in conflict-free measurement (*"Finally stop letting your agency grade their own homework"*). Advises executive teams on Marketing Mix Modeling (MMM), incrementality testing, customer LTV/churn segmentation, and hybrid social listening. Named one of the <strong>Top 5 Social Listening Agencies in the US (2026)</strong>.
+            </p>
+            <div class="mt-4">
+              <a href="https://www.starlightanalytics.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-mono text-starlightGold hover:underline">
+                Explore Starlight Analytics ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Career Card 3: Rutgers Academic Leadership -->
+          <div class="p-8 rounded-2xl bg-white border border-hairlineLight card-hover-transition">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-mono text-xs font-semibold text-rutgersCrimson uppercase flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-rutgersCrimson"></span>
+                Academic Faculty
+              </span>
+              <span class="text-xs font-mono text-slate-400">Executive &amp; MBA Programs</span>
+            </div>
+            <h3 class="font-serif text-2xl text-deepInk">Assistant Professor of Marketing: Rutgers Business School</h3>
+            <p class="text-slateMuted text-sm mt-3 leading-relaxed">
+              Teaches undergraduate, graduate, and MBA courses in <strong>AI in Marketing</strong>, <strong>Marketing Technology</strong>, and <strong>Introduction to Marketing</strong>. Serves as faculty lead for Rutgers Executive Education’s flagship program <em>"Reinventing Work with AI,"</em> training senior leaders on where artificial intelligence creates verifiable enterprise value.
+            </p>
+            <div class="mt-4">
+              <a href="https://www.business.rutgers.edu/executive-education/reinventing-work-ai" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-mono text-slate-600 hover:text-starlightGold transition-colors">
+                View Rutgers Executive Program ↗
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 4: THREE PILLARS OF WORK ================= -->
+  <section id="advisory" class="py-24 bg-white border-y border-hairlineLight">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <div class="max-w-2xl mb-16">
+        <span class="font-mono text-xs uppercase tracking-widest text-starlightGold font-semibold">
+          Core Advisory &amp; Practice
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-deepInk mt-2">
+          Three Pillars of Impact
+        </h2>
+        <p class="text-slateMuted mt-4 text-base">
+          Bridging brand-side commercial reality with rigorous data science and executive education.
+        </p>
+      </div>
+
+      <!-- 3 Pillars Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Pillar 1 -->
+        <div class="p-8 rounded-2xl bg-ivory border border-hairlineLight flex flex-col justify-between card-hover-transition">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-white border border-hairlineLight flex items-center justify-center text-starlightGold mb-6 shadow-sm">
+              <span class="font-mono text-sm font-bold">01</span>
+            </div>
+            <h3 class="font-serif text-2xl text-deepInk mb-3">Independent Marketing Measurement</h3>
+            <p class="text-slateMuted text-sm leading-relaxed">
+              <em>&ldquo;Stop letting your agency grade their own homework.&rdquo;</em> Modern Marketing Mix Modeling (MMM), holdout incrementality tests, and 4-week diagnostic audits built inside the stack brands already own — with zero software to sell.
+            </p>
+          </div>
+          <div class="mt-8 pt-4 border-t border-hairlineLight font-mono text-xs text-slate-500">
+            MMM · Incrementality · P&amp;L Defense
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="p-8 rounded-2xl bg-ivory border border-hairlineLight flex flex-col justify-between card-hover-transition">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-white border border-hairlineLight flex items-center justify-center text-deepInk mb-6 shadow-sm">
+              <span class="font-mono text-sm font-bold">02</span>
+            </div>
+            <h3 class="font-serif text-2xl text-deepInk mb-3">Customer &amp; Social Intelligence</h3>
+            <p class="text-slateMuted text-sm leading-relaxed">
+              Blending real-time social listening with RFM segmentation, churn prediction, and Voice-of-Customer research. Backed by proprietary tooling like Starlight's free Comment Insight Extractor.
+            </p>
+          </div>
+          <div class="mt-8 pt-4 border-t border-hairlineLight font-mono text-xs text-slate-500">
+            Top 5 US Social Listening · VoC AI
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="p-8 rounded-2xl bg-ivory border border-hairlineLight flex flex-col justify-between card-hover-transition">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-white border border-hairlineLight flex items-center justify-center text-rutgersCrimson mb-6 shadow-sm">
+              <span class="font-mono text-sm font-bold">03</span>
+            </div>
+            <h3 class="font-serif text-2xl text-deepInk mb-3">AI in Marketing &amp; Executive Education</h3>
+            <p class="text-slateMuted text-sm leading-relaxed">
+              Guiding MBA cohorts and enterprise leaders at Rutgers Business School where AI genuinely creates bottom-line value — from prompt &amp; workflow architecture to keynote panels with Adobe and LinkedIn.
+            </p>
+          </div>
+          <div class="mt-8 pt-4 border-t border-hairlineLight font-mono text-xs text-slate-500">
+            Rutgers MBA · Executive Education
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 5: BRAND PEDIGREE & CASE PROOF ================= -->
+  <section class="py-24 bg-ivory">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <div class="text-center md:text-left mb-10">
+        <span class="font-mono text-xs uppercase tracking-widest text-starlightGold font-semibold">
+          Operator Pedigree
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-deepInk mt-2">
+          Global Brands Led From the Inside
+        </h2>
+      </div>
+
+      <!-- 5 Iconic Brands Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-16 text-center">
+        <div class="p-5 rounded-2xl bg-white border border-hairlineLight hover:border-starlightGold transition-all flex flex-col items-center justify-center shadow-sm">
+          <span class="font-serif text-lg font-semibold text-deepInk">Calvin Klein</span>
+          <span class="text-[11px] font-mono text-slate-400 mt-1">PVH Corp.</span>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-hairlineLight hover:border-starlightGold transition-all flex flex-col items-center justify-center shadow-sm">
+          <span class="font-serif text-lg font-semibold text-deepInk">Tommy Hilfiger</span>
+          <span class="text-[11px] font-mono text-slate-400 mt-1">PVH Corp.</span>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-hairlineLight hover:border-starlightGold transition-all flex flex-col items-center justify-center shadow-sm">
+          <span class="font-serif text-lg font-semibold text-deepInk">The North Face</span>
+          <span class="text-[11px] font-mono text-slate-400 mt-1">VF Corporation</span>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-hairlineLight hover:border-starlightGold transition-all flex flex-col items-center justify-center shadow-sm">
+          <span class="font-serif text-lg font-semibold text-deepInk">Timberland</span>
+          <span class="text-[11px] font-mono text-slate-400 mt-1">VF Corporation</span>
+        </div>
+        <div class="p-5 rounded-2xl bg-white border border-hairlineLight hover:border-starlightGold transition-all flex flex-col items-center justify-center shadow-sm col-span-2 sm:col-span-1">
+          <span class="font-serif text-lg font-semibold text-deepInk">Vans</span>
+          <span class="text-[11px] font-mono text-slate-400 mt-1">VF Corporation</span>
+        </div>
+      </div>
+
+      <!-- 2 Verified Case Proof Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Case 1 -->
+        <div class="p-8 rounded-2xl bg-white border-2 border-starlightGold/25 card-hover-transition shadow-sm">
+          <div class="flex items-center justify-between text-xs font-mono text-starlightGold mb-3">
+            <span class="font-semibold uppercase tracking-wider">Enterprise Transformation</span>
+            <span class="px-2 py-0.5 rounded bg-starlightGold/15 font-bold">+$2M Gross Profit</span>
+          </div>
+          <h3 class="font-serif text-2xl text-deepInk mb-3">Global Beauty Brand Overhaul</h3>
+          <p class="text-slateMuted text-sm leading-relaxed">
+            Walked into a 150+ project backlog and 4-week response delays. Restructured team workflows, centralized reporting dashboards, and introduced SQL/BI training. Reduced turnaround times from 4 weeks to 1 week, tripled output, and generated a <strong>15% lift in Marketing ROI</strong>.
+          </p>
+          <div class="mt-6 pt-4 border-t border-hairlineLight">
+            <a href="https://www.starlightanalytics.com/case-studies/from-dashboards-to-decisions" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-mono text-deepInk hover:text-starlightGold transition-colors">
+              Read the Case Study ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="p-8 rounded-2xl bg-white border border-hairlineLight card-hover-transition shadow-sm">
+          <div class="flex items-center justify-between text-xs font-mono text-slate-500 mb-3">
+            <span class="font-semibold uppercase tracking-wider">Strategic Discovery</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 font-bold text-slate-700">6 Weeks vs 6 Months</span>
+          </div>
+          <h3 class="font-serif text-2xl text-deepInk mb-3">6-Week Consumer Insights Breakthrough</h3>
+          <p class="text-slateMuted text-sm leading-relaxed">
+            Uncovered an unbiased, data-grounded consumer narrative in six weeks that had eluded a client's previous six-month, multi-million-dollar agency engagements. Delivered clear, actionable clarity free of internal political bias.
+          </p>
+          <div class="mt-6 pt-4 border-t border-hairlineLight">
+            <a href="https://www.starlightanalytics.com/about" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-mono text-deepInk hover:text-starlightGold transition-colors">
+              Learn About Starlight's Methodology ↗
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 6: SELECTED PRESS & COMMENTARY ================= -->
+  <section id="press" class="py-24 bg-white border-y border-hairlineLight">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-starlightGold font-semibold">
+            National Media &amp; Thought Leadership
+          </span>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-deepInk mt-2">
+            Selected Press &amp; Commentary
+          </h2>
+        </div>
+        <p class="text-slateMuted text-sm max-w-md">
+          Explore Chris's verified commentary across national business journals on consumer psychology, retail economics, and AI adoption.
+        </p>
+      </div>
+
+      <!-- Bento Grid (6 Verified Press Cards) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Press 1: Fortune -->
+        <a href="https://fortune.com/2026/11/15/skims-148-advent-calendar-flop-wasnt-a-stunt-marketers-say-but-store-credit-may-not-win-back-kim-kardashian-angry-customers/" target="_blank" rel="noopener noreferrer" class="group bg-ivory p-6 rounded-2xl border border-hairlineLight card-hover-transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-4">
+              <span class="text-starlightGold font-semibold uppercase">Fortune</span>
+              <span>Nov 15, 2026</span>
+            </div>
+            <h3 class="font-serif text-xl text-deepInk group-hover:text-starlightGold transition-colors leading-snug">
+              Skims' $148 Advent Calendar Flop Wasn't a Stunt
+            </h3>
+            <p class="text-slateMuted text-sm mt-3 leading-relaxed">
+              Starlight Analytics social listening tracked negative sentiment outnumbering positive 8-to-1: &ldquo;This store credit is the customer's own $148, following a poor experience.&rdquo;
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-hairlineLight flex items-center justify-between text-xs font-mono text-slate-500 group-hover:text-deepInk">
+            <span>Read Fortune Feature</span>
+            <span class="text-starlightGold">↗</span>
+          </div>
+        </a>
+
+        <!-- Press 2: Inc. -->
+        <a href="https://www.inc.com/amaya-nichole/erewhon-expanding-in-new-york-biggest-risk-is-not-20-dollar-smoothie/91426855" target="_blank" rel="noopener noreferrer" class="group bg-ivory p-6 rounded-2xl border border-hairlineLight card-hover-transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-4">
+              <span class="text-deepInk font-semibold uppercase">Inc. Magazine</span>
+              <span>Oct 29, 2026</span>
+            </div>
+            <h3 class="font-serif text-xl text-deepInk group-hover:text-starlightGold transition-colors leading-snug">
+              Erewhon in New York: The Real Risk Isn't the $20 Smoothie
+            </h3>
+            <p class="text-slateMuted text-sm mt-3 leading-relaxed">
+              Analyzing Erewhon's LA wellness status code vs. NYC daily-routine economics: &ldquo;If they get that wrong, it turns into one more expensive grocery store in a city that already has plenty.&rdquo;
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-hairlineLight flex items-center justify-between text-xs font-mono text-slate-500 group-hover:text-deepInk">
+            <span>Read Inc. Analysis</span>
+            <span class="text-starlightGold">↗</span>
+          </div>
+        </a>
+
+        <!-- Press 3: Digital Commerce 360 -->
+        <a href="https://www.digitalcommerce360.com/2026/10/19/bonobos-launches-shopify-powered-site-with-omnichannel-fit-and-profile-capabilities/" target="_blank" rel="noopener noreferrer" class="group bg-ivory p-6 rounded-2xl border border-hairlineLight card-hover-transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-4">
+              <span class="text-slate-700 font-semibold uppercase">Digital Commerce 360</span>
+              <span>Oct 19, 2026</span>
+            </div>
+            <h3 class="font-serif text-xl text-deepInk group-hover:text-starlightGold transition-colors leading-snug">
+              Bonobos, Omnichannel Fit &amp; Eliminating Return Friction
+            </h3>
+            <p class="text-slateMuted text-sm mt-3 leading-relaxed">
+              Explaining how Guideshop fit profiles drive 2–3× omnichannel spend while reducing 15–35% online return friction in apparel e-commerce.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-hairlineLight flex items-center justify-between text-xs font-mono text-slate-500 group-hover:text-deepInk">
+            <span>Read Coverage</span>
+            <span class="text-starlightGold">↗</span>
+          </div>
+        </a>
+
+        <!-- Press 4: Retail Brew -->
+        <a href="https://www.retailbrew.com/stories/the-trust-economy-peers-creators-live-audiences-replaced-sales-pitch" target="_blank" rel="noopener noreferrer" class="group bg-ivory p-6 rounded-2xl border border-hairlineLight card-hover-transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-4">
+              <span class="text-starlightGold font-semibold uppercase">Retail Brew</span>
+              <span>Aug 27, 2026</span>
+            </div>
+            <h3 class="font-serif text-xl text-deepInk group-hover:text-starlightGold transition-colors leading-snug">
+              The Trust Economy: How Peers Replaced the Sales Pitch
+            </h3>
+            <p class="text-slateMuted text-sm mt-3 leading-relaxed">
+              Authenticity lessons from VF Corp &amp; The North Face: &ldquo;Actually listening to what customers have to say and responding in a real way earns credit.&rdquo;
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-hairlineLight flex items-center justify-between text-xs font-mono text-slate-500 group-hover:text-deepInk">
+            <span>Read Retail Brew</span>
+            <span class="text-starlightGold">↗</span>
+          </div>
+        </a>
+
+        <!-- Press 5: The Food Institute -->
+        <a href="https://foodinstitute.com/focus/nutrient-density-trending-do-consumers-understand-it/" target="_blank" rel="noopener noreferrer" class="group bg-ivory p-6 rounded-2xl border border-hairlineLight card-hover-transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-4">
+              <span class="text-slate-700 font-semibold uppercase">The Food Institute</span>
+              <span>Oct 20, 2026</span>
+            </div>
+            <h3 class="font-serif text-xl text-deepInk group-hover:text-starlightGold transition-colors leading-snug">
+              GLP-1 Drugs &amp; The Consumer Shift Toward Nutrient Density
+            </h3>
+            <p class="text-slateMuted text-sm mt-3 leading-relaxed">
+              Evaluating how GLP-1 weight medications are driving consumer grocery cart shifts toward high-protein and high-fiber reformulations.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-hairlineLight flex items-center justify-between text-xs font-mono text-slate-500 group-hover:text-deepInk">
+            <span>Read Publication</span>
+            <span class="text-starlightGold">↗</span>
+          </div>
+        </a>
+
+        <!-- Press 6: Rutgers AI Summit -->
+        <a href="https://www.business.rutgers.edu/executive-education/reinventing-work-ai" target="_blank" rel="noopener noreferrer" class="group bg-ivory p-6 rounded-2xl border border-hairlineLight card-hover-transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-rutgersCrimson mb-4">
+              <span class="font-semibold uppercase flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-rutgersCrimson"></span>
+                Rutgers Faculty Spotlight
+              </span>
+              <span>2025 – 2026</span>
+            </div>
+            <h3 class="font-serif text-xl text-deepInk group-hover:text-starlightGold transition-colors leading-snug">
+              Reinventing Work with AI &amp; Executive Panels
+            </h3>
+            <p class="text-slateMuted text-sm mt-3 leading-relaxed">
+              Leading Rutgers executive education cohorts and moderating senior technology summits featuring enterprise leaders from Adobe and LinkedIn.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-hairlineLight flex items-center justify-between text-xs font-mono text-slate-500 group-hover:text-deepInk">
+            <span>Explore Rutgers Programs</span>
+            <span class="text-rutgersCrimson">↗</span>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 7: WHAT LEADERS SAY (TESTIMONIALS) ================= -->
+  <section id="testimonials" class="py-24 bg-ivory">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <div class="text-center max-w-xl mx-auto mb-16 space-y-2">
+        <span class="font-mono text-xs uppercase tracking-widest text-starlightGold font-semibold">
+          Client Partner Perspectives
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-deepInk">
+          What Brand Leaders Say
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Quote 1 -->
+        <div class="p-8 rounded-2xl bg-white border border-hairlineLight relative flex flex-col justify-between card-hover-transition">
+          <div>
+            <span class="font-serif text-5xl text-starlightGold/40 leading-none select-none">&ldquo;</span>
+            <blockquote class="italic font-serif text-lg text-deepInk leading-relaxed mt-2">
+              Within six weeks, they delivered a fresh perspective, converting complex information into clear, actionable insights—free of ambiguity and bias... A true &lsquo;aha&rsquo; moment that had eluded us for six months and millions of dollars in previous efforts.
+            </blockquote>
+          </div>
+          <div class="mt-6 pt-4 border-t border-hairlineLight flex items-center justify-between text-xs font-mono text-slate-500">
+            <span class="font-semibold text-deepInk">Senior Retail Merchandising Leader</span>
+            <span>Starlight Client Partner</span>
+          </div>
+        </div>
+
+        <!-- Quote 2 -->
+        <div class="p-8 rounded-2xl bg-white border border-hairlineLight relative flex flex-col justify-between card-hover-transition">
+          <div>
+            <span class="font-serif text-5xl text-starlightGold/40 leading-none select-none">&ldquo;</span>
+            <blockquote class="italic font-serif text-lg text-deepInk leading-relaxed mt-2">
+              Chris and his team helped us go from scattered data and slow answers to a clear, aligned analytics engine. We're faster, smarter, and more strategic now. Since we began partnering in 2017, Chris has been instrumental in transforming data into a catalyst for innovation.
+            </blockquote>
+          </div>
+          <div class="mt-6 pt-4 border-t border-hairlineLight flex items-center justify-between text-xs font-mono text-slate-500">
+            <span class="font-semibold text-deepInk">Global Beauty Brand Executive</span>
+            <span>Enterprise Partner</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECTION 8: DIRECT CONNECT & FOOTER ================= -->
+  <section id="connect" class="py-24 bg-midnight text-white">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <div class="max-w-2xl mx-auto text-center space-y-4 mb-16">
+        <span class="font-mono text-xs uppercase tracking-widest text-starlightGold font-semibold">
+          Get in Touch
+        </span>
+        <h2 class="font-serif text-4xl sm:text-5xl text-white">
+          Let's Connect
+        </h2>
+        <p class="text-slate-300 text-base leading-relaxed">
+          Open for retail analytics advisory, media commentary, Rutgers academic inquiries, or keynote speaking.
+        </p>
+      </div>
+
+      <!-- Action Cards (3-Column Layout) -->
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
+        
+        <!-- Email Card -->
+        <div class="p-6 rounded-2xl bg-midnight-card border border-white/10 flex flex-col justify-between">
+          <div>
+            <span class="font-mono text-xs uppercase text-slate-400 block mb-1">Direct Advisory Email</span>
+            <span class="font-mono text-sm font-semibold text-white block break-all">chris@starlightanalytics.com</span>
+          </div>
+          <div class="mt-6 flex items-center gap-2">
+            <a href="mailto:chris@starlightanalytics.com" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-starlightGold text-midnight text-xs font-mono font-semibold hover:bg-starlightGold-hover transition-colors">
+              Send Email
+            </a>
+            <button onclick="copyEmail(this)" class="inline-flex items-center justify-center px-3 py-2 rounded-lg bg-white/10 border border-white/10 text-slate-200 text-xs font-mono hover:bg-white/20 transition-colors">
+              Copy
+            </button>
+          </div>
+        </div>
+
+        <!-- Starlight Analytics Card -->
+        <div class="p-6 rounded-2xl bg-midnight-card border border-white/10 flex flex-col justify-between">
+          <div>
+            <span class="font-mono text-xs uppercase text-slate-400 block mb-1">Consultancy HQ</span>
+            <span class="font-serif text-lg text-white block">Starlight Analytics</span>
+            <span class="text-xs text-slate-400 font-mono block mt-1">+1 (908) 219-7978</span>
+          </div>
+          <div class="mt-6">
+            <a href="https://www.starlightanalytics.com" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-white/10 border border-white/10 text-white text-xs font-mono hover:bg-white/20 transition-colors">
+              <span>Visit Website</span>
+              <span class="text-starlightGold">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Free Tools Spotlight Card -->
+        <div class="p-6 rounded-2xl bg-midnight-card border border-white/10 flex flex-col justify-between">
+          <div>
+            <span class="font-mono text-xs uppercase text-starlightGold block mb-1">Free Community Tool</span>
+            <span class="font-serif text-lg text-white block">Comment Insight Extractor</span>
+            <span class="text-xs text-slate-400 font-mono block mt-1">Export YouTube, Reddit &amp; Reviews</span>
+          </div>
+          <div class="mt-6">
+            <a href="https://www.starlightanalytics.com/free-tools" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-white/10 border border-white/10 text-white text-xs font-mono hover:bg-white/20 transition-colors">
+              <span>Explore Free Tool</span>
+              <span class="text-starlightGold">↗</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Verified Social & Channels Strip -->
+      <div class="max-w-2xl mx-auto pt-8 border-t border-hairlineDark flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-slate-400">
+        <a href="https://www.starlightanalytics.com/about" target="_blank" rel="noopener noreferrer" class="hover:text-starlightGold transition-colors">
+          Starlight About ↗
+        </a>
+        <span>·</span>
+        <a href="https://directory.esomar.org/company/8505/starlight-analytics" target="_blank" rel="noopener noreferrer" class="hover:text-starlightGold transition-colors">
+          ESOMAR Directory ↗
+        </a>
+        <span>·</span>
+        <a href="https://www.quirks.com/directories/sourcebook/company/starlight-analytics" target="_blank" rel="noopener noreferrer" class="hover:text-starlightGold transition-colors">
+          Quirks Media ↗
+        </a>
+        <span>·</span>
+        <a href="https://www.business.rutgers.edu/executive-education/reinventing-work-ai" target="_blank" rel="noopener noreferrer" class="hover:text-starlightGold transition-colors">
+          Rutgers Executive Ed ↗
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= MINIMAL EXECUTIVE FOOTER ================= -->
+  <footer class="bg-[#070b16] text-slate-400 py-8 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-xs font-mono gap-4">
+      <div>
+        <span>&copy; 2026 Chris Ribeiro · New York / New Jersey · Built with clarity.</span>
+      </div>
+      <div class="flex items-center gap-4 text-slate-500">
+        <span>Starlight Analytics · Rutgers Business School</span>
+        <span>·</span>
+        <a href="#" class="hover:text-starlightGold transition-colors">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT: STARLIGHT CONSTELLATION & INTERACTIVE CUBE ================= -->
+  <script>
+    // Visual Toggle (3D Cube vs Portrait)
+    function switchVisual(view) {
+      const cubeView = document.getElementById('cubeView');
+      const photoView = document.getElementById('photoView');
+      const showCubeBtn = document.getElementById('showCubeBtn');
+      const showPhotoBtn = document.getElementById('showPhotoBtn');
+
+      if (view === 'cube') {
+        cubeView.classList.remove('hidden');
+        photoView.classList.add('hidden');
+        showCubeBtn.classList.add('bg-starlightGold', 'text-midnight', 'font-semibold');
+        showCubeBtn.classList.remove('text-slate-300');
+        showPhotoBtn.classList.remove('bg-starlightGold', 'text-midnight', 'font-semibold');
+        showPhotoBtn.classList.add('text-slate-300');
+      } else {
+        cubeView.classList.add('hidden');
+        photoView.classList.remove('hidden');
+        showPhotoBtn.classList.add('bg-starlightGold', 'text-midnight', 'font-semibold');
+        showPhotoBtn.classList.remove('text-slate-300');
+        showCubeBtn.classList.remove('bg-starlightGold', 'text-midnight', 'font-semibold');
+        showCubeBtn.classList.add('text-slate-300');
+      }
+    }
+
+    // Interactive 3D Cube Tilt & Mouse Physics
+    (function () {
+      const cubeScene = document.getElementById('cubeScene');
+      const cube = document.getElementById('interactiveCube');
+      if (!cubeScene || !cube) return;
+
+      let mouseX = 0;
+      let mouseY = 0;
+      let isHovered = false;
+
+      cubeScene.addEventListener('mouseenter', () => {
+        isHovered = true;
+      });
+
+      cubeScene.addEventListener('mousemove', (e) => {
+        const rect = cubeScene.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        mouseX = (x / rect.width) * 60;
+        mouseY = -(y / rect.height) * 60;
+        cube.style.transform = `rotateX(${mouseY}deg) rotateY(${mouseX}deg)`;
+      });
+
+      cubeScene.addEventListener('mouseleave', () => {
+        isHovered = false;
+        cube.style.transform = '';
+      });
+    })();
+
+    // The Starlight Signal Constellation Canvas
+    (function () {
+      const canvas = document.getElementById('starlightConstellationCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      let width = 0;
+      let height = 0;
+      let dpr = window.devicePixelRatio || 1;
+      let animationFrameId;
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      let mouse = {
+        x: null,
+        y: null,
+        radius: 180
+      };
+
+      function resize() {
+        const rect = canvas.getBoundingClientRect();
+        width = rect.width;
+        height = rect.height;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.scale(dpr, dpr);
+      }
+
+      window.addEventListener('resize', resize);
+      resize();
+
+      canvas.parentElement.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+
+      canvas.parentElement.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      // 45 Star / Data Nodes
+      const starCount = 45;
+      const stars = [];
+
+      for (let i = 0; i < starCount; i++) {
+        stars.push({
+          x: Math.random() * (width || 1200),
+          y: Math.random() * (height || 800),
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.35,
+          radius: Math.random() * 1.8 + 1,
+          isGold: Math.random() > 0.45
+        });
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Update positions
+        stars.forEach((star) => {
+          if (!prefersReducedMotion) {
+            star.x += star.vx;
+            star.y += star.vy;
+
+            if (star.x < 0) star.x = width;
+            if (star.x > width) star.x = 0;
+            if (star.y < 0) star.y = height;
+            if (star.y > height) star.y = 0;
+          }
+
+          // Gentle mouse gravity
+          if (mouse.x !== null) {
+            const dx = mouse.x - star.x;
+            const dy = mouse.y - star.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < mouse.radius) {
+              const force = (1 - dist / mouse.radius) * 0.8;
+              star.x += (dx / dist) * force;
+              star.y += (dy / dist) * force;
+            }
+          }
+
+          // Draw star node
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          ctx.fillStyle = star.isGold ? 'rgba(212, 163, 81, 0.65)' : 'rgba(255, 255, 255, 0.45)';
+          ctx.fill();
+        });
+
+        // Draw constellation lines
+        const maxDist = 115;
+        for (let i = 0; i < stars.length; i++) {
+          for (let j = i + 1; j < stars.length; j++) {
+            const dx = stars[i].x - stars[j].x;
+            const dy = stars[i].y - stars[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < maxDist) {
+              const alpha = (1 - dist / maxDist) * 0.22;
+              ctx.beginPath();
+              ctx.moveTo(stars[i].x, stars[i].y);
+              ctx.lineTo(stars[j].x, stars[j].y);
+              ctx.strokeStyle = `rgba(212, 163, 81, ${alpha})`;
+              ctx.lineWidth = 0.85;
+              ctx.stroke();
+            }
+          }
+        }
+
+        animationFrameId = requestAnimationFrame(render);
+      }
+
+      render();
+    })();
+
+    // Copy Email Toast Helper
+    function copyEmail(button) {
+      navigator.clipboard.writeText('chris@starlightanalytics.com').then(() => {
+        const originalText = button.innerText;
+        button.innerText = 'Copied!';
+        button.classList.add('bg-starlightGold', 'text-midnight');
+        setTimeout(() => {
+          button.innerText = originalText;
+          button.classList.remove('bg-starlightGold', 'text-midnight');
+        }, 2200);
+      });
+    }
+  </script>
+</body>
+</html>
