@@ -189,24 +189,53 @@
           <!-- Outer Card Container -->
           <div class="relative w-full max-w-sm rounded-3xl bg-midnight-card/85 border border-white/10 p-6 shadow-2xl backdrop-blur-md">
             
-            <!-- Tab Switcher between 3D Artifact & Headshot Frame -->
-            <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+            <!-- Tab Switcher between Portrait & 3D Interactive Artifact -->
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
               <div class="flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-starlightGold"></span>
-                <span class="font-mono text-xs uppercase tracking-wider text-slate-300">Executive Artifact</span>
+                <span class="font-mono text-xs uppercase tracking-wider text-slate-300">Executive Profile</span>
               </div>
               <div class="flex items-center gap-1 bg-white/5 p-1 rounded-lg border border-white/10">
-                <button id="showCubeBtn" onclick="switchVisual('cube')" class="px-2.5 py-1 rounded text-[11px] font-mono bg-starlightGold text-midnight font-semibold transition-all">
-                  3D Cube
-                </button>
-                <button id="showPhotoBtn" onclick="switchVisual('photo')" class="px-2.5 py-1 rounded text-[11px] font-mono text-slate-300 hover:text-white transition-all">
+                <button id="showPhotoBtn" onclick="switchVisual('photo')" class="px-3 py-1 rounded text-[11px] font-mono bg-starlightGold text-midnight font-semibold transition-all">
                   Portrait
+                </button>
+                <button id="showCubeBtn" onclick="switchVisual('cube')" class="px-3 py-1 rounded text-[11px] font-mono text-slate-300 hover:text-white transition-all">
+                  3D Cube
                 </button>
               </div>
             </div>
 
-            <!-- View 1: 3D Interactive Rotating Cube -->
-            <div id="cubeView" class="py-4 flex flex-col items-center">
+            <!-- View 1: Executive Headshot Slot (Active by Default) -->
+            <div id="photoView" class="py-1">
+              <div class="relative w-full h-80 sm:h-96 rounded-2xl overflow-hidden bg-slate-900 border border-white/10 flex items-center justify-center shadow-inner group">
+                <img 
+                  id="chrisHeadshot"
+                  src="chris-ribeiro.png" 
+                  alt="Chris Ribeiro - Founder, Starlight Analytics & Professor at Rutgers Business School" 
+                  class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                  onerror="this.style.display='none'; document.getElementById('headshotFallback').style.display='flex';"
+                >
+                <div id="headshotFallback" class="hidden w-full h-full flex-col items-center justify-center text-center p-6 space-y-3 bg-gradient-to-b from-slate-800 to-midnight">
+                  <div class="w-20 h-20 rounded-full border border-starlightGold/50 flex items-center justify-center bg-starlightGold/10">
+                    <span class="font-serif text-3xl text-starlightGold">CR</span>
+                  </div>
+                  <div>
+                    <span class="block font-serif text-lg text-white">Chris Ribeiro</span>
+                    <span class="font-mono text-xs text-slate-400">Starlight Analytics · Rutgers</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3 px-1 flex items-center justify-between text-xs font-mono text-slate-400">
+                <span class="flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-starlightGold animate-pulse"></span>
+                  Founder &amp; Principal
+                </span>
+                <span class="text-slate-400">Rutgers Business School</span>
+              </div>
+            </div>
+
+            <!-- View 2: 3D Interactive Rotating Cube (Toggleable) -->
+            <div id="cubeView" class="hidden py-4 flex flex-col items-center">
               <div class="cube-scene" id="cubeScene">
                 <div class="cube-object" id="interactiveCube">
                   
@@ -266,32 +295,6 @@
                   <span class="w-1.5 h-1.5 rounded-full bg-starlightGold animate-ping"></span>
                   Interactive 3D Data Cube: Hover to pause &amp; examine dimensions
                 </span>
-              </div>
-            </div>
-
-            <!-- View 2: Executive Headshot Slot -->
-            <div id="photoView" class="hidden py-2">
-              <div class="relative w-full h-72 rounded-2xl overflow-hidden bg-slate-900 border border-white/10 flex items-center justify-center shadow-inner">
-                <img 
-                  id="chrisHeadshot"
-                  src="chris-ribeiro.jpg" 
-                  alt="Chris Ribeiro - Founder, Starlight Analytics & Professor at Rutgers Business School" 
-                  class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
-                  onerror="this.style.display='none'; document.getElementById('headshotFallback').style.display='flex';"
-                >
-                <div id="headshotFallback" class="hidden w-full h-full flex-col items-center justify-center text-center p-6 space-y-3 bg-gradient-to-b from-slate-800 to-midnight">
-                  <div class="w-20 h-20 rounded-full border border-starlightGold/50 flex items-center justify-center bg-starlightGold/10">
-                    <span class="font-serif text-3xl text-starlightGold">CR</span>
-                  </div>
-                  <div>
-                    <span class="block font-serif text-lg text-white">Chris Ribeiro</span>
-                    <span class="font-mono text-xs text-slate-400">Starlight Analytics · Rutgers</span>
-                  </div>
-                </div>
-              </div>
-              <div class="mt-4 flex items-center justify-between text-xs font-mono text-slate-400">
-                <span>New York / New Jersey</span>
-                <span class="text-starlightGold">Rutgers Business School</span>
               </div>
             </div>
 
