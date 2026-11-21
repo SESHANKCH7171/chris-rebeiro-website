@@ -52,12 +52,17 @@
       box-shadow: 0 14px 32px -10px rgba(11, 16, 32, 0.08);
     }
 
-    /* 3D Interactive Rotating Cube Styles */
+    /* 3D Interactive Rotating Cube Styles (Physics-Driven Dice) */
     .cube-scene {
-      width: 200px;
-      height: 200px;
-      perspective: 900px;
-      margin: 0 auto;
+      width: 210px;
+      height: 210px;
+      perspective: 1000px;
+      margin: 10px auto;
+      cursor: grab;
+      touch-action: none;
+    }
+    .cube-scene:active {
+      cursor: grabbing;
     }
     .cube-object {
       width: 100%;
@@ -65,42 +70,34 @@
       position: relative;
       transform-style: preserve-3d;
       transform: rotateX(-18deg) rotateY(32deg);
-      animation: autoSpinCube 24s infinite linear;
-      transition: transform 0.2s ease-out;
-    }
-    .cube-object:hover {
-      animation-play-state: paused;
+      user-select: none;
+      -webkit-user-select: none;
     }
     .cube-face {
       position: absolute;
-      width: 200px;
-      height: 200px;
-      border: 1px solid rgba(212, 163, 81, 0.45);
-      background: rgba(16, 22, 43, 0.78);
-      backdrop-filter: blur(8px);
-      box-shadow: inset 0 0 35px rgba(212, 163, 81, 0.15), 0 0 20px rgba(11, 16, 32, 0.6);
+      width: 210px;
+      height: 210px;
+      border: 1.5px solid rgba(212, 163, 81, 0.45);
+      background: rgba(16, 22, 43, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: inset 0 0 35px rgba(212, 163, 81, 0.15), 0 10px 25px rgba(0, 0, 0, 0.5);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 16px;
       text-align: center;
-      border-radius: 12px;
+      border-radius: 14px;
       color: #ffffff;
-      user-select: none;
+      pointer-events: none;
     }
-    .cube-face-front  { transform: rotateY(0deg) translateZ(100px); }
-    .cube-face-back   { transform: rotateY(180deg) translateZ(100px); }
-    .cube-face-right  { transform: rotateY(90deg) translateZ(100px); }
-    .cube-face-left   { transform: rotateY(-90deg) translateZ(100px); }
-    .cube-face-top    { transform: rotateX(90deg) translateZ(100px); }
-    .cube-face-bottom { transform: rotateX(-90deg) translateZ(100px); }
-
-    @keyframes autoSpinCube {
-      0% { transform: rotateX(-16deg) rotateY(0deg); }
-      50% { transform: rotateX(16deg) rotateY(180deg); }
-      100% { transform: rotateX(-16deg) rotateY(360deg); }
-    }
+    .cube-face-front  { transform: rotateY(0deg) translateZ(105px); }
+    .cube-face-back   { transform: rotateY(180deg) translateZ(105px); }
+    .cube-face-right  { transform: rotateY(90deg) translateZ(105px); }
+    .cube-face-left   { transform: rotateY(-90deg) translateZ(105px); }
+    .cube-face-top    { transform: rotateX(90deg) translateZ(105px); background: rgba(22, 30, 56, 0.9); }
+    .cube-face-bottom { transform: rotateX(-90deg) translateZ(105px); background: rgba(22, 30, 56, 0.9); }
   </style>
 </head>
 <body class="bg-ivory text-deepInk font-sans antialiased selection:bg-starlightGold/20">
@@ -290,11 +287,35 @@
                 </div>
               </div>
 
-              <div class="mt-8 text-center">
-                <span class="inline-flex items-center gap-1.5 text-[11px] font-mono text-slate-400">
-                  <span class="w-1.5 h-1.5 rounded-full bg-starlightGold animate-ping"></span>
-                  Interactive 3D Data Cube: Hover to pause &amp; examine dimensions
+              <!-- Drag & Roll Instructions -->
+              <div class="mt-6 text-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono text-starlightGold">
+                  <span>✋ Drag &amp; roll dice 360° to inspect all sides</span>
                 </span>
+              </div>
+
+              <!-- Quick Snap Face Selectors -->
+              <div class="mt-4 pt-3 border-t border-white/10 w-full">
+                <span class="block text-[10px] font-mono text-slate-400 uppercase tracking-wider text-center mb-2">
+                  Quick Inspect Face:
+                </span>
+                <div class="flex flex-wrap items-center justify-center gap-1.5">
+                  <button type="button" onclick="snapCube('front')" class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 hover:bg-starlightGold hover:text-midnight border border-white/10 transition-colors">
+                    Operator
+                  </button>
+                  <button type="button" onclick="snapCube('top')" class="px-2 py-0.5 rounded text-[10px] font-mono bg-starlightGold/20 text-starlightGold hover:bg-starlightGold hover:text-midnight border border-starlightGold/40 transition-colors font-semibold">
+                    ▲ Top (+$2M)
+                  </button>
+                  <button type="button" onclick="snapCube('bottom')" class="px-2 py-0.5 rounded text-[10px] font-mono bg-starlightGold/20 text-starlightGold hover:bg-starlightGold hover:text-midnight border border-starlightGold/40 transition-colors font-semibold">
+                    ▼ Bottom (Top 5)
+                  </button>
+                  <button type="button" onclick="snapCube('back')" class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 hover:bg-starlightGold hover:text-midnight border border-white/10 transition-colors">
+                    Rutgers
+                  </button>
+                  <button type="button" onclick="snapCube('right')" class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 hover:bg-starlightGold hover:text-midnight border border-white/10 transition-colors">
+                    Founder
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -948,33 +969,144 @@
       }
     }
 
-    // Interactive 3D Cube Tilt & Mouse Physics
+    // Interactive 3D Dice Trackball Physics (Drag, Roll, Inertia & Face Snapping)
     (function () {
-      const cubeScene = document.getElementById('cubeScene');
+      const scene = document.getElementById('cubeScene');
       const cube = document.getElementById('interactiveCube');
-      if (!cubeScene || !cube) return;
+      if (!scene || !cube) return;
 
-      let mouseX = 0;
-      let mouseY = 0;
-      let isHovered = false;
+      let isDragging = false;
+      let startX = 0, startY = 0;
+      let rotX = -18, rotY = 32;
+      let velX = 0, velY = 0;
+      let animId = null;
+      let autoRotate = true;
+      let idleTimer = null;
 
-      cubeScene.addEventListener('mouseenter', () => {
-        isHovered = true;
-      });
+      function updateTransform() {
+        cube.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      }
 
-      cubeScene.addEventListener('mousemove', (e) => {
-        const rect = cubeScene.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        mouseX = (x / rect.width) * 60;
-        mouseY = -(y / rect.height) * 60;
-        cube.style.transform = `rotateX(${mouseY}deg) rotateY(${mouseX}deg)`;
-      });
+      function onPointerDown(e) {
+        isDragging = true;
+        autoRotate = false;
+        clearTimeout(idleTimer);
+        cancelAnimationFrame(animId);
+        
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        startX = clientX;
+        startY = clientY;
+        velX = 0;
+        velY = 0;
+      }
 
-      cubeScene.addEventListener('mouseleave', () => {
-        isHovered = false;
-        cube.style.transform = '';
-      });
+      function onPointerMove(e) {
+        if (!isDragging) return;
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        const dx = clientX - startX;
+        const dy = clientY - startY;
+
+        velX = dx * 0.45;
+        velY = dy * 0.45;
+
+        rotY += velX;
+        rotX -= velY;
+
+        startX = clientX;
+        startY = clientY;
+        updateTransform();
+      }
+
+      function onPointerUp() {
+        if (!isDragging) return;
+        isDragging = false;
+
+        // Inertial damping loop
+        function applyInertia() {
+          if (Math.abs(velX) > 0.08 || Math.abs(velY) > 0.08) {
+            rotY += velX;
+            rotX -= velY;
+            velX *= 0.92;
+            velY *= 0.92;
+            updateTransform();
+            animId = requestAnimationFrame(applyInertia);
+          } else {
+            // Resume subtle idle rotation after 4s
+            idleTimer = setTimeout(() => {
+              autoRotate = true;
+              startAutoFloat();
+            }, 3800);
+          }
+        }
+        applyInertia();
+      }
+
+      function startAutoFloat() {
+        if (!autoRotate || isDragging) return;
+        rotY += 0.22;
+        updateTransform();
+        animId = requestAnimationFrame(startAutoFloat);
+      }
+
+      scene.addEventListener('mousedown', onPointerDown);
+      window.addEventListener('mousemove', onPointerMove);
+      window.addEventListener('mouseup', onPointerUp);
+
+      scene.addEventListener('touchstart', onPointerDown, { passive: true });
+      window.addEventListener('touchmove', onPointerMove, { passive: true });
+      window.addEventListener('touchend', onPointerUp);
+
+      updateTransform();
+      startAutoFloat();
+
+      // Quick Face Snap Functionality
+      window.snapCube = function(face) {
+        autoRotate = false;
+        clearTimeout(idleTimer);
+        cancelAnimationFrame(animId);
+        
+        let targetX = 0;
+        let targetY = 0;
+
+        switch(face) {
+          case 'front':  targetX = 0;   targetY = 0;   break; // Operator
+          case 'top':    targetX = -90; targetY = 0;   break; // +$2M Profit
+          case 'bottom': targetX = 90;  targetY = 0;   break; // Top 5 US
+          case 'right':  targetX = 0;   targetY = -90; break; // Founder
+          case 'left':   targetX = 0;   targetY = 90;  break; // Press Voice
+          case 'back':   targetX = 0;   targetY = 180; break; // Rutgers
+        }
+
+        // Smooth tween transition to face
+        let step = 0;
+        const totalSteps = 22;
+        const initialX = rotX;
+        const initialY = rotY;
+
+        function animateSnap() {
+          step++;
+          const progress = step / totalSteps;
+          const ease = 1 - Math.pow(1 - progress, 3); // cubic ease out
+          rotX = initialX + (targetX - initialX) * ease;
+          rotY = initialY + (targetY - initialY) * ease;
+          updateTransform();
+
+          if (step < totalSteps) {
+            requestAnimationFrame(animateSnap);
+          } else {
+            rotX = targetX;
+            rotY = targetY;
+            updateTransform();
+            idleTimer = setTimeout(() => {
+              autoRotate = true;
+              startAutoFloat();
+            }, 4500);
+          }
+        }
+        animateSnap();
+      };
     })();
 
     // The Starlight Signal Constellation Canvas
